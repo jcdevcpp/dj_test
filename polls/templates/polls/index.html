@@ -5,7 +5,7 @@
     <title>Polls Index</title>
   </head>
   <body>
-    {% if latest_queston_list %}
+    {% if latest_question_list %}
         <ul>
         {% for question in latest_queston_list %}
             <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text}}</a></li>
