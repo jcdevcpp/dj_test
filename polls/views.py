@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
@@ -34,3 +34,5 @@ def vote(request, question_id):
         selected_choice.save()
         return HttpResponseRedirect(reverse('polls:results', 
             args=(question.id,)))
+def owner(request):
+    return HttpResponse("Hello, world. 66968295 is the polls index.")
