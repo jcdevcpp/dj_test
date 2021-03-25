@@ -10,5 +10,5 @@ def sess_cook_view(request):
     n_visits = request.session.get('n_visits', 0) +1
     request.session['n_visits']=n_visits
     if n_visits>4 : del(request.session['n_visits'])
-    response.write(f"<p>view count = {str(n_visits)}</p>")
+    response.write(f"<p>view count={str(n_visits)}</p>")
     return response
