@@ -2,6 +2,17 @@ from django.db import models
 from django.core.validators import MinLengthValidator
 
 
+class Make(models.Model):
+    name = models.CharField(
+        max_length=200,
+        help_text="Enter a make (eg. Dodge)",
+        validators=[MinLengthValidator(2, "Make must be greater thn 1 character")],
+    )
+
+    def __str__(self):
+        """String to represent the make obbject"""
+        return self.name
+
 class Auto(models.Model):
     nickname = models.CharField(
         max_length=200,
@@ -14,15 +25,3 @@ class Auto(models.Model):
 
     def __str__(self):
         return self.nickname
-
-
-class Make(models.Model):
-    name = models.CharField(
-        max_length=200,
-        help_text="Enter a make (eg. Dodge)",
-        validators=[MinLengthValidator(2, "Make must be greater thn 1 character")],
-    )
-
-    def __str__(self):
-        """String to represent the make obbject"""
-        return self.name
